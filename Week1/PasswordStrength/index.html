@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  Password: <input type = "text" id = "password" name = "password">
+
+  <script>
+  //password.length => if length of text is less than 6 text will be red
+  //                   if length of text is between 7 and 10 the text will be orange
+  //                   if length of text is greater than 10 the text will be green
+    const x = document.getElementById('password');
+
+    //addEventListener(typeOfEvent, howToHandle)
+    x.addEventListener('keyup', function (evt){
+      if(this.value.length > 10){
+        this.style.color = 'green';
+      }
+      else if(this.value.length >= 7 && this.value.length <= 10){
+        this.style.color = 'orange';
+      }
+      else {
+        this.style.color = 'red';
+      }
+    });
+
+
+  </script>
+
+</body>
+</html>

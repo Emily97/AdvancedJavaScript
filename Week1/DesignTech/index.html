@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+  <script>
+      //array of values from 1 to 100
+      // multiple of 3 print Design
+      // multiple of 5 print Tech
+      let numbers = new Array(100);
+      for(let i = 0; i < 100; i++){
+        numbers[i] = i + 1;
+      }
+
+      for(let i = 0; i < numbers.length; i++){
+        if(numbers[i] % 3 == 0 && numbers[i] % 5 == 0){
+          console.log("DesignTech")
+        }
+        else if(numbers[i] % 3 == 0){
+          console.log("Design");
+        }
+        else if(numbers[i] % 5 == 0){
+          console.log("Tech");
+        }
+        else{
+          console.log(numbers[i]);
+        }
+      }
+
+
+  </script>
+
+</body>
+</html>
