@@ -17,7 +17,23 @@ function User(props) {
   );
 }
 
-const userList = users.map( u => <User name={u.name} age = {u.age} />);
+// User Component - class style
+class User2 extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render() {
+    //print to screen
+    return (
+      <div>
+        <h2>{this.props.name}</h2>
+        <p style = {{'color': 'red'}}>{this.props.age}</p>
+      </div>
+    );
+  }
+}
+
+const userList = users.map( u => <User2 name={u.name} age = {u.age} />);
 
 ReactDOM.render(
   <div>{userList}</div>,
