@@ -1,41 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const users = [
-  {name: 'John', age: 32},
-  {name: 'Mary', age: 22},
-  {name: 'Sue', age: 44}
-];
-
-// User Component
-function User(props) {
-  return (
-    <div>
-      <h2>{props.name}</h2>
-      <p style = {{'color': 'red'}}>{props.age}</p>
-    </div>
-  );
-}
-
-// User Component - class style
-class User2 extends React.Component {
+class Clicky extends React.Component {
   constructor(props){
     super(props);
+    this.state = {clickCount: 0};
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({clickCount: this.state.clickCount + 1});
+    console.log('clicked');
   }
   render() {
-    //print to screen
-    return (
+    return(
       <div>
-        <h2>{this.props.name}</h2>
-        <p style = {{'color': 'red'}}>{this.props.age}</p>
+      <h1>{this.state.clickCount} times clicked</h1>
+      <button onClick={this.handleClick}>My name is {this.props.name}, click me I love to be clicked</button>
       </div>
     );
   }
 }
-
-const userList = users.map( u => <User2 name={u.name} age = {u.age} />);
-
 ReactDOM.render(
-  <div>{userList}</div>,
-  document.getElementById('root')
+  <div>
+  <Clicky name={'Click Jnr'}/>
+  </div>,
+  document.getElementById("root")
 );
