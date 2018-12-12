@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import axios from 'axios';
 
 class Clicky extends React.Component {
   constructor(props){
@@ -10,6 +10,18 @@ class Clicky extends React.Component {
   handleClick() {
     this.setState({clickCount: this.state.clickCount + 1});
     console.log('clicked');
+  }
+  componentDidMount(){
+    axios.get('https://randomuser.me/api/')
+      .then(response => {
+        console.log(response.data.results);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+  componentDidUpdate(){
+    console.log('update');
   }
   render() {
     return(

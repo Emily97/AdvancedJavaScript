@@ -1,43 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Clicky from "./clicky";
-import data from "./data";
+import User from "./usercard";
+import axios from 'axios';
 
-const users = data.results; // [{user},{user}, ...]
+class UserGrid extends React.Component {
+  constructor(props){
+    super(props);
 
-function User(props) {
-  return (
-    <div className="column is-3">
-      <div className="card">
-        <div className="card-image">
-          <figure className="image is-4by3">
-            <img alt="Profile" src={props.image} />
-          </figure>
-        </div>
-        <div className="card-content">
-          <div className="media">
-            <div className="media-content">
-              <p className="title is-4">{props.name}</p>
-              <p className="subtitle">{props.quote}</p>
-              <Clicky />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    this.state = {users: []};
+  }
+  componentDidMount(){
+    axios.get('https://randomuser.me/api/?results=50')
+      .then(response => {
+        this.setState({users: response.data.results});
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+  render(){
+    console.log(this.state.users);
+    const userList = this.state.users.map(u => (
+      <User
+        key={u.name.first}
+        name={u.name.first}
+        image={u.picture.medium}
+        quote={u.quote}
+      />
+    ));
+    return(
+      <div className="columns is-multiline">{userList}</div>
+    )
+  }
 }
 
-const userList = users.map(u => (
-  <User
-    key={u.name.first}
-    name={u.name.first}
-    image={u.picture.medium}
-    quote={u.quote}
-  />
-));
-
 ReactDOM.render(
-  <div className="columns is-multiline">{userList}</div>,
+  <UserGrid />,
   document.getElementById("root")
 );
