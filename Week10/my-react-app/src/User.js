@@ -9,7 +9,7 @@ class User extends React.Component {
 
     // Setup the state data
     this.state = {
-      likes: 0
+      inappropriate: true
     };
 
     // This binding is necessary to make `this` work in the onclick callback
@@ -20,28 +20,24 @@ class User extends React.Component {
   handleClick() {
     // Increment the likes property stored in state
     this.setState(prevState => ({
-      likes: prevState.likes + 1
+      inappropriate: !prevState.inappropriate
     }));
+    console.log(this.state.inappropriate);
   }
 
   // Define what happens when this componet gets drawn on the UI
   render() {
     return (
       <div className="column is-3">
-        <div className="card">
-          <div className="card-image">
-            <figure className="image is-4by3">
-              <img alt="Profile" src={this.props.image} />
-            </figure>
-          </div>
+        <div className={this.state.inappropriate ? 'has-background-primary':'has-background-danger'}>
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4">{this.props.name}</p>
-                <p className="subtitle">{this.props.quote}</p>
-                <h1>Likes: {this.state.likes}</h1>
+                <p className="title is-4 has-text-white">{this.props.name}</p>
+                <p className="has-text-white">{this.props.email}</p>
+                <p className="subtitle has-text-white">{this.props.body}</p>
                 <button type="button" onClick={this.handleClick}>
-                  Like this user
+                  Flag as {this.state.inappropriate ? 'inappropriate':'appropriate'}
                 </button>
               </div>
             </div>

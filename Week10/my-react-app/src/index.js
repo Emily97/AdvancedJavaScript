@@ -16,10 +16,11 @@ class UserGrid extends React.Component {
   componentDidMount() {
     // Get data for 50 users
     axios
-      .get("https://randomuser.me/api/?results=50")
+      .get("https://jsonplaceholder.typicode.com/comments")
       .then(response => {
         // GET request was successful, store the users in state
-        this.setState({ users: response.data.results });
+        console.log(response.data);
+        this.setState({ users: response.data });
       })
       .catch(err => {
         // GET failed, log the error
@@ -30,10 +31,10 @@ class UserGrid extends React.Component {
   render() {
     const userList = this.state.users.map(u => (
       <User
-        key={u.name.first}
-        name={u.name.first}
-        image={u.picture.medium}
-        quote={u.quote}
+        key={u.id}
+        name={u.name}
+        body={u.body}
+        email={u.email}
       />
     ));
 
