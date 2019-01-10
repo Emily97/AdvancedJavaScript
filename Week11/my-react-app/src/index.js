@@ -1,12 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import House from "./Houses";
+// Note: ensure you've installed axios with 'npm install axios'
+import axios from "axios";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class HouseList extends React.Component {
+  constructor(props) {
+    super(props);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    // this is where we will store the comments, when they have been retrieved
+    this.state = { houses: [] };
+  }
+
+  // Runs when component is mounted
+  componentDidMount() {
+    // Get data for 500 comments
+    axios
+      .get("https://anapioficeandfire.com/api/houses/")
+      .then(response => {
+        // GET request was successful, store the comments in state
+        this.setState({ houses: response.data });
+      })
+      .catch(err => {
+        // GET failed, log the error
+        console.log(err);
+      });
+  }
+
+  render() {
+    // For each comment, generate a Comment component and pass data in as props
+    const houseList = this.state.houses.map(item => (
+      <House
+        key={item.url}
+        name={item.name}
+        region={item.region}
+        words={item.words}
+      />
+    ));
+
+    return <div className="columns is-multiline">{houseList}</div>;
+  }
+}
+
+ReactDOM.render(<HouseList />, document.getElementById("root"));
