@@ -17,6 +17,7 @@ class HouseList extends React.Component {
     // Get data for 500 comments
     axios
       .get("https://anapioficeandfire.com/api/houses/?pageSize=10")
+      // .get("https://api.imgur.com/3/gallery/search?q={this.props.name}")
       .then(response => {
         // GET request was successful, store the comments in state
         this.setState({ houses: response.data });
