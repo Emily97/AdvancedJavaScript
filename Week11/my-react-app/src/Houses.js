@@ -19,6 +19,7 @@ class House extends React.Component {
                 <p className="title is-4">House Name: {this.props.name}</p>
                 <p className="subtitle">Region: {this.props.region}</p>
                 <p className="subtitle">Quote: "{this.props.words}"</p>
+                <img src="https://api.imgur.com/3/gallery/search?q={this.props.name}" />
             </div>
           </div>
         </div>
