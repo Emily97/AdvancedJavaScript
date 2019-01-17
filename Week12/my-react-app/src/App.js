@@ -25,7 +25,11 @@ class App extends Component {
         const results = response.data.results;
         results.forEach((movie) =>{
           // console.log(movie.title);
-          movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
+          if(movie.poster_path) {
+            movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
+          } else {
+            movie.poster_src = "https://via.placeholder.com/185x278";
+          }
           console.log(movie.poster_path);
           const movieRow = <MovieRow key={movie.id} movie={movie}/>
           movieRows.push(movieRow);
