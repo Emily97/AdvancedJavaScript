@@ -1,5 +1,6 @@
 .titlebar {
     background-color: #000;
+    width:100%;
     display: 'block';
     color: #fff;
     padding-left: 16px;
