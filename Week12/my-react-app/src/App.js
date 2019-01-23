@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = { movie: []};
-        this.performSearch("marvel");
+        this.performSearch("a");
 }
   performSearch(searchTerm) {
     console.log("Perform search using movie database");
