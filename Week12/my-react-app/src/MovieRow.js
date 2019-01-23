@@ -11,6 +11,8 @@ class MovieRow extends React.Component {
           <td>
             {this.props.movie.original_title}
             <p>{this.props.movie.overview}</p>
+            <p>Release Date: {this.props.movie.release_date}</p>
+            <p>Rating: {this.props.movie.vote_average}</p>
           </td>
         </tr>
       </tbody>

@@ -30,6 +30,14 @@ class App extends Component {
           } else {
             movie.poster_src = "https://via.placeholder.com/185x278";
           }
+
+          if(movie.vote_average === 0) {
+            movie.vote_average = "N/A";
+          } else {
+            movie.vote_average = movie.vote_average;
+          }
+
+
           console.log(movie.poster_path);
           const movieRow = <MovieRow key={movie.id} movie={movie}/>
           movieRows.push(movieRow);
