@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import './App.css';
 import MovieRow from './MovieRow.js';
-// import $ from 'jquery';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import axios from "axios";
 
-class App extends Component {
+
+class About extends React.Component {
+  render() {
+    return(
+      <div>
+        <h2>About</h2>
+      </div>
+    );
+  }
+}
+
+class Contact extends React.Component {
+  render() {
+    return(
+      <div>
+        <h2>Contact Us</h2>
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { movie: []};
@@ -61,31 +82,45 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <table className="titlebar">
+      <BrowserRouter>
+        <div>
+          <table className="titlebar">
+              <tbody>
+                  <tr>
+                      <td>
+                          <img alt="logo" width="50" src="greenlogo.svg" />
+                      </td>
+                      <td width="8" />
+                      <td>
+                          <h1>Movies DB Search</h1>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <table>
             <tbody>
-                <tr>
-                    <td>
-                        <img alt="logo" width="50" src="greenlogo.svg" />
-                    </td>
-                    <td width="8" />
-                    <td>
-                        <h1>Movies DB Search</h1>
-                    </td>
-                </tr>
+              <tr>
+                <td>
+                  <input className="searchBox" onChange={this.searchChangeHandler.bind(this)} placeholder="Search Movie" />
+                </td>
+                <td width="8" />
+                <td>
+                  <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
+                  </ul>
+                </td>
+              </tr>
             </tbody>
-        </table>
+          </table>
 
-        <input style={{
-            fontSize: 24,
-            display: 'block',
-            paddingTop:8,
-            paddingBottom:8,
-            paddingLeft: 16
-        }} onChange={this.searchChangeHandler.bind(this)} placeholder="Search" />
-
-        {this.state.rows}
-      </div>
+          {this.state.rows}
+          <Route path="/about" component={About}/>
+          <Route path="/contact" component={Contact}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }

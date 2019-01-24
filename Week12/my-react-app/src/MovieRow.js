@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 class MovieRow extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class MovieRow extends React.Component {
       <tbody>
         <tr>
           <td>
-            <img alt="poster" src={this.props.movie.poster_src} />
+            <img className="posterImg" alt="poster" src={this.props.movie.poster_src} />
           </td>
           <td>
             {this.props.movie.original_title}
