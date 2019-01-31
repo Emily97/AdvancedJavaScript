@@ -1,35 +1,3 @@
-.titlebar {
-    background-color:  #081c24;
-    width:100%;
-    display: 'block';
-    color: #fff;
-    padding-left: 16px;
-}
-
-.posterImg{
-
-}
-
-.pageLayout{
-  background-color: #081c24;
-}
-
-.searchBox{
-  fontSize: 24;
-  paddingTop:8;
-  paddingBottom:8;
-  paddingLeft: 16;
-}
-ul{
-  list-style-type: none;
-}
-li {
-  float: left;
-  padding-right: 25px;
-}
-li a{
-  text-decoration: none;
-}
 .App {
   text-align: center;
 }
@@ -61,11 +29,4 @@ li a{
   to {
     transform: rotate(360deg);
   }
-}
-.card{
-  float: left;
-  padding:30px;
-}
-.media-content{
-  text-align: center;
 }

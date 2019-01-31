@@ -1,35 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import MovieRow from './MovieRow.js';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
 import axios from "axios";
-
-
-class About extends React.Component {
-  render() {
-    return(
-      <div>
-        <h2>About</h2>
-      </div>
-    );
-  }
-}
-
-class Contact extends React.Component {
-  render() {
-    return(
-      <div>
-        <h2>Contact Us</h2>
-      </div>
-    );
-  }
-}
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { movie: []};
-        this.performSearch("a");
+        this.performSearch("a");  //begins the search term at a until a searchTerm hasa been input into the
 }
   performSearch(searchTerm) {
     console.log("Perform search using movie database");
@@ -82,8 +60,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div>
+        <div  className="pageLayout">
           <table className="titlebar">
               <tbody>
                   <tr>
@@ -105,22 +82,12 @@ class App extends React.Component {
                   <input className="searchBox" onChange={this.searchChangeHandler.bind(this)} placeholder="Search Movie" />
                 </td>
                 <td width="8" />
-                <td>
-                  <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                  </ul>
-                </td>
               </tr>
             </tbody>
           </table>
 
           {this.state.rows}
-          <Route path="/about" component={About}/>
-          <Route path="/contact" component={Contact}/>
         </div>
-      </BrowserRouter>
     );
   }
 }
