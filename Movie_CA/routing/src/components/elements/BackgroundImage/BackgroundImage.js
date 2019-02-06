@@ -12,7 +12,6 @@ const BackgroundImage = (props) => {
             <div className="movie-BackgroundImage-content">
                 <div className="movie-BackgroundImage-text">
                     <h1>{props.title}</h1>
-                    <p>{props.text}</p>
                 </div>
             </div>
         </div>
