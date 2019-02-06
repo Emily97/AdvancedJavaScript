@@ -1,4 +1,4 @@
-.movie-loadmorebtn {
+.movie-LoadMovies {
   background: #16d47b;
   width: 100%;
   min-height: 50px;
@@ -8,12 +8,12 @@
   transition: all 0.3s;
 }
 
-.movie-loadmorebtn p {
+.movie-LoadMovies p {
   font-family: 'Abel', sans-serif;
   font-size:42px;
   padding: 20px;
 }
 
-.movie-loadmorebtn:hover {
+.movie-LoadMovies:hover {
   opacity: 0.8;
 }

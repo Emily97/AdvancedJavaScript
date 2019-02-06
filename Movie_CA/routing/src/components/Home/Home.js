@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE} from '../../config';
 
-import HeroImage from '../elements/HeroImage/HeroImage';
+import BackgroundImage from '../elements/BackgroundImage/BackgroundImage';
 import SearchBar from '../elements/SearchBar/SearchBar';
 import PanelLayout from '../elements/PanelLayout/PanelLayout';
-import MovieThumb from '../elements/MovieThumb/MovieThumb';
-import LoadMoreBtn from '../elements/LoadMoreBtn/LoadMoreBtn';
-import Spinner from '../elements/Spinner/Spinner';
+import ImageThumbnail from '../elements/ImageThumbnail/ImageThumbnail';
+import LoadMovies from '../elements/LoadMovies/LoadMovies';
+import LoadingIcon from '../elements/LoadingIcon/LoadingIcon';
 
 import './Home.css';
 
 class Home extends Component {
     state = {
         movies: [],
-        heroImage: null,
+        BackgroundImage: null,
         loading: false,
         currentPage: 0,
         totalPages: 0,
@@ -63,7 +63,7 @@ class Home extends Component {
             this.setState({
                 //copies old movies to add new movies to the end of the array
                 movies: [...this.state.movies, ...result.results],
-                heroImage: this.state.heroImage || result.results[0],
+                BackgroundImage: this.state.BackgroundImage || result.results[0],
                 loading:false,
                 currentPage: result.page,
                 totalPages: result.total_pages
@@ -74,12 +74,12 @@ class Home extends Component {
     render(){
         return(
             <div className="movie-home">
-            {this.state.heroImage ?
+            {this.state.BackgroundImage ?
                 <div>
-                    <HeroImage
-                        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.heroImage.backdrop_path}`}
-                        title={this.state.heroImage.original_title}
-                        text={this.state.heroImage.overview}
+                    <BackgroundImage
+                        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.BackgroundImage.backdrop_path}`}
+                        title={this.state.BackgroundImage.original_title}
+                        text={this.state.BackgroundImage.overview}
                     />
                     <SearchBar callback={this.searchItems}/>
                 </div> : null }
@@ -89,7 +89,7 @@ class Home extends Component {
                         loading={this.state.loading}
                         >
                         {this.state.movies.map ((element, i) => {
-                            return <MovieThumb
+                            return <ImageThumbnail
                                         key={i}
                                         clickable={true}
                                         image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/no_image.jpg'}
@@ -98,9 +98,9 @@ class Home extends Component {
                                     />
                         })}
                     </PanelLayout>
-                    {this.state.loading ? <Spinner /> : null}
+                    {this.state.loading ? <LoadingIcon /> : null}
                     {(this.state.currentPage <= this.state.totalPages && !this.state.loading) ?
-                        <LoadMoreBtn text="Load More" onClick={this.loadMoreItems} />
+                        <LoadMovies text="Load More" onClick={this.loadMoreItems} />
                         : null }
                 </div>
             </div>

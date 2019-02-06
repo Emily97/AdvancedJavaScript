@@ -1,16 +1,16 @@
 import React from 'react';
-import './HeroImage.css';
+import './BackgroundImage.css';
 
-const HeroImage = (props) => {
+const BackgroundImage = (props) => {
     return(
-        <div className="movie-heroimage"
+        <div className="movie-BackgroundImage"
             style={{
                 background:
                     `url('${props.image}'), #1c1c1c`
             }}
         >
-            <div className="movie-heroimage-content">
-                <div className="movie-heroimage-text">
+            <div className="movie-BackgroundImage-content">
+                <div className="movie-BackgroundImage-text">
                     <h1>{props.title}</h1>
                     <p>{props.text}</p>
                 </div>
@@ -19,4 +19,4 @@ const HeroImage = (props) => {
     )
 }
 
-export default HeroImage;
+export default BackgroundImage;

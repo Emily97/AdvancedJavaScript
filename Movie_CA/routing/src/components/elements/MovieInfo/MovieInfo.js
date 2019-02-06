@@ -1,6 +1,6 @@
 import React from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../../config';
-import MovieThumb from '../MovieThumb/MovieThumb';
+import ImageThumbnail from '../ImageThumbnail/ImageThumbnail';
 import './MovieInfo.css';
 
 const MovieInfo = (props) => {
@@ -11,7 +11,7 @@ const MovieInfo = (props) => {
             }}>
             <div className="movie-movieinfo-content">
                 <div className="movie-movieinfo-thumb">
-                    <MovieThumb
+                    <ImageThumbnail
                         image={props.movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}` : './images/no_image.jpg'}
                         clickable={false}
                     />

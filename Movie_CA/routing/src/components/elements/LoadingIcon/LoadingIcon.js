@@ -1,7 +1,7 @@
 import React from 'react';
-import './Spinner.css';
+import './LoadingIcon.css';
 
-const Spinner = () => {
+const LoadingIcon = () => {
     return(
         <div className="loader">
 
@@ -9,4 +9,4 @@ const Spinner = () => {
     )
 }
 
-export default Spinner;
+export default LoadingIcon;

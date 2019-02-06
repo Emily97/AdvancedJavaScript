@@ -4,7 +4,7 @@ import Navigation from '../elements/Navigation/Navigation';
 import MovieInfo from '../elements/MovieInfo/MovieInfo';
 import PanelLayout from '../elements/PanelLayout/PanelLayout';
 import Actor from '../elements/Actor/Actor';
-import Spinner from '../elements/Spinner/Spinner';
+import LoadingIcon from '../elements/LoadingIcon/LoadingIcon';
 import './Movie.css';
 
 class Movie extends Component {
@@ -66,7 +66,7 @@ class Movie extends Component {
                     </div>
                     : null }
                     {!this.state.actors && !this.state.loading ? <h1>No movie found</h1> : null}
-                    {this.state.loading ? <Spinner /> : null}
+                    {this.state.loading ? <LoadingIcon /> : null}
                 }
             </div>
         )
