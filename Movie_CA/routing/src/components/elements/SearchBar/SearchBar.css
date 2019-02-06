@@ -41,10 +41,3 @@
 .movie-searchbar-input:focus {
   outline: none;
 }
-
-@media screen and (max-width: 720px) {
-  .movie-searchbar-input {
-    font-size: 28px;
-    color: #fff;
-  }
-}
