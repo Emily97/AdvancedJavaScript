@@ -6,7 +6,6 @@ import Navigation from '../elements/Navigation/Navigation';
 import MovieInfo from '../elements/MovieInfo/MovieInfo';
 import PanelLayout from '../elements/PanelLayout/PanelLayout';
 import Actor from '../elements/Actor/Actor';
-import LoadingIcon from '../elements/LoadingIcon/LoadingIcon';
 //css
 import './Movie.css';
 
