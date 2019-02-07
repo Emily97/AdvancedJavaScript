@@ -1,6 +1,7 @@
 .movie-BackgroundImage {
   background-size: 100%;
   background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   height: 600px;
   position: relative;

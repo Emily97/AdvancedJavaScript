@@ -3,6 +3,7 @@ import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../../config';
 import ImageThumbnail from '../ImageThumbnail/ImageThumbnail';
 import './MovieInfo.css';
 
+//movie information placed over the movie background
 const MovieInfo = (props) => {
     return (
         <div className="movie-movieinfo"

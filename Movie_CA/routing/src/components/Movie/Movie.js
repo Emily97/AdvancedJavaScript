@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY } from '../../config';
+
+//components
 import Navigation from '../elements/Navigation/Navigation';
 import MovieInfo from '../elements/MovieInfo/MovieInfo';
 import PanelLayout from '../elements/PanelLayout/PanelLayout';
 import Actor from '../elements/Actor/Actor';
 import LoadingIcon from '../elements/LoadingIcon/LoadingIcon';
+//css
 import './Movie.css';
 
 class Movie extends Component {
@@ -20,11 +23,12 @@ class Movie extends Component {
         const endpoint = `${API_URL}movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
         this.fetchItems(endpoint);
     }
-
+    //fetch movie results
     fetchItems = (endpoint) => {
         fetch(endpoint)
         .then(result => result.json())
         .then(result => {
+          //if the status code returned is a failed response see -> https://www.themoviedb.org/documentation/api/status-codes?language=en-US
             if(result.status_code){
                 this.setState({ loading: false });
             }
@@ -65,9 +69,6 @@ class Movie extends Component {
                         </PanelLayout>
                     </div>
                     : null }
-                    {!this.state.actors && !this.state.loading ? <h1>No movie found</h1> : null}
-                    {this.state.loading ? <LoadingIcon /> : null}
-                }
             </div>
         )
     }
