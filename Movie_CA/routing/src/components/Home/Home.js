@@ -24,7 +24,8 @@ class Home extends Component {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
     }
-
+    //searches for movies if theirs text found in the search bar.
+    //if theres no text found in the search bar nothing will be searched for
     searchItems = (searchTerm) => {
         console.log(searchTerm);
         let endpoint = '';
@@ -41,7 +42,8 @@ class Home extends Component {
         }
         this.fetchItems(endpoint);
     }
-
+    //loads more movies depending on whether or not there is a value in the search bar.
+    //if there is text found in the search bar the items loaded to the screen will be related to what the user searched.
     loadMoreItems = () => {
         let endpoint = '';
         this.setState({ loading: true });
