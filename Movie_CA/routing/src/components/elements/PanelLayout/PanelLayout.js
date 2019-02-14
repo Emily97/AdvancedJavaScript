@@ -9,23 +9,23 @@ const PanelLayout = ({ header, loading, children }) => {
       <div key={i} className="movie-grid-element">
         {element}
       </div>
-    ))
+    ));
     return gridElements;
-  }
+  };
 
   return (
     <div className="movie-grid">
       {header && !loading ? <h1>{header}</h1> : null}
       <div className="movie-grid-content">
-         {renderElements()}
+        {renderElements()}
       </div>
     </div>
-  )
-}
+  );
+};
 
 PanelLayout.propTypes = {
   header: PropTypes.string,
   loading: PropTypes.bool
-}
+};
 
 export default PanelLayout;

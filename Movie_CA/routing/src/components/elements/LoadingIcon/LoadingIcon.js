@@ -2,11 +2,11 @@ import React from 'react';
 import './LoadingIcon.css';
 
 const LoadingIcon = () => {
-    return(
-        <div className="loader">
+  return(
+    <div className="loader">
 
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default LoadingIcon;
