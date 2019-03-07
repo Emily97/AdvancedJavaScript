@@ -4,7 +4,7 @@ const ObjectID = require('mongodb').ObjectID;
 const bodyParser = require('body-parser');
 
 const server = express();
-const dbname = 'MyMongoDB'; // change to match your database name
+const dbname = 'StackCa'; // change to match your database name
 
 // serve files from the dist directory
 server.use(express.static('dist'));
