@@ -26,18 +26,23 @@ class ModuleList extends Component {
         key={u._id}
         id={u._id}
         name={u.name}
-        credits={u.credits}
-        weeks={u.weeks}
+        time={u.time}
+        level={u.level}
       />
     ));
 
     return (
       <div>
+        <Link to={'/#/'}>
+          <button type="button">
+              Return
+          </button>
+        </Link>
         {moduleList.length ?
           <div>
-            <h2>All Modules</h2>
+            <h2>All Recipes</h2>
             <div>{moduleList}</div></div> :
-          <h2>No Modules</h2> }
+          <h2>No Recipes</h2> }
       </div>
     );
   }
@@ -47,8 +52,8 @@ const Module = (props) => {
   return (
     <div>
       <h2>{props.name}</h2>
-      <p>Credits: {props.credits}</p>
-      <p>Runs for {props.weeks} weeks</p>
+      <p>Cook Time: {props.time} minutes</p>
+      <p>Cooking Level: {props.level}</p>
     </div>
   );
 };

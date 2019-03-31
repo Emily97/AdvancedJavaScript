@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 const LecturerSchema = mongoose.Schema({
   name: String,
+  image: String,
   email: String,
-  office: String
+  region: String
 });
 
 module.exports = mongoose.model('Lecturer', LecturerSchema);

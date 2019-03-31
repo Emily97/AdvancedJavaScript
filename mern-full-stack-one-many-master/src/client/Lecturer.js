@@ -7,12 +7,15 @@ class Lecturer extends React.Component {
       <div>
         <div>
           <p>{this.props.name}</p>
-          <p>Office: {this.props.office}</p>
+          <figure>
+            <img alt="Profile" src={this.props.image} />
+          </figure>
+          <p>Region: {this.props.region}</p>
           <p>Email: {this.props.email}</p>
 
           <Link to={`/module/${this.props.id}`}>
             <button type="button">
-                  View modules taught
+                  View recipes
             </button>
           </Link>
         </div>

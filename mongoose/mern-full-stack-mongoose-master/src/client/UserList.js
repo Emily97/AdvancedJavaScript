@@ -66,7 +66,7 @@ class UserList extends Component {
           Create new user
           </button>
         </Link>
-        <h2>All Users</h2>
+        <h2>All Chefs</h2>
         <div>{userList}</div>
       </div>
     );

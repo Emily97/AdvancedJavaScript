@@ -28,8 +28,9 @@ class LecturerList extends Component {
         key={u._id}
         id={u._id}
         name={u.name}
+        image={u.image}
         email={u.email}
-        office={u.office}
+        region={u.region}
       />
     ));
 

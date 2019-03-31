@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 const ModuleSchema = mongoose.Schema({
   name: String,
-  credits: Number,
-  weeks: Number,
+  time: Number,
+  level: String,
   lecturer_id : { type: mongoose.Schema.Types.ObjectId, ref: 'Lecturer' }
 });
 
