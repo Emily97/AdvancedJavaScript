@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './app.css';
 
 class Lecturer extends React.Component {
   render() {
     return (
-      <div>
-        <div>
+      <div className="card">
+        <div className="card-body">
           <p>{this.props.name}</p>
           <figure>
             <img alt="Profile" src={this.props.image} />

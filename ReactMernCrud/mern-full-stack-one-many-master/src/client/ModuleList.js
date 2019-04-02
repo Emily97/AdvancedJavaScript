@@ -81,7 +81,7 @@ class ModuleList extends Component {
 
 const Module = (props) => {
   return (
-    <div>
+    <div className="card">
       <h2>{props.name}</h2>
       <p>Cooking Time:{props.time} minutes</p>
       <p>Level: {props.level}</p>
