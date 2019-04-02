@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const Lecturer = require('./models/Lecturer');
-const Module = require('./models/Module');
+const Chef = require('./models/Chef');
+const Recipe = require('./models/Recipe');
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-const mongo_uri = 'mongodb://localhost/lecturer-modules';
+const mongo_uri = 'mongodb://localhost/chef-recipes';
 mongoose.connect(mongo_uri, { useNewUrlParser: true }, function(err) {
   if (err) {
     throw err;
@@ -29,38 +29,38 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/api/lecturers', function(req, res) {
-  Lecturer.find({}, function(err, data) {
+app.get('/api/chefs', function(req, res) {
+  Chef.find({}, function(err, data) {
     if (err) throw err;
 
     res.send(data);
   });
 });
 
-app.get('/api/modules', function(req, res) {
-  Module.find({}, function(err, data) {
+app.get('/api/recipes', function(req, res) {
+  Recipe.find({}, function(err, data) {
     if (err) throw err;
 
     res.send(data);
   });
 });
 
-app.get('/api/lecturers/:id', function(req, res) {
-  Lecturer.findOne({_id: req.params.id}, function(err, data) {
+app.get('/api/chefs/:id', function(req, res) {
+  Chef.findOne({_id: req.params.id}, function(err, data) {
     if (err) throw err;
 
     res.send(data);
   });
 });
 
-app.get('/api/lecturers/:id/modules', function(req, res) {
-  Lecturer.findOne({_id: req.params.id}, function(err, data) {
+app.get('/api/chefs/:id/recipes', function(req, res) {
+  Chef.findOne({_id: req.params.id}, function(err, data) {
     if (err) throw err;
 
-    Module.find({lecturer_id: data._id}, function(err, modules) {
+    Recipe.find({chef_id: data._id}, function(err, recipes) {
       if (err) throw err;
 
-      res.send(modules);
+      res.send(recipes);
     });
   });
 });

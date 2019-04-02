@@ -1,15 +1,15 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import LecturerList from './LecturerList';
-import ModuleList from './ModuleList';
+import ChefList from './ChefList';
+import RecipeList from './RecipeList';
 
 // 'main' Component. Sets up the React Router and respective routes
 const App = () => {
   return(
     <HashRouter>
       <div>
-        <Route exact path="/" component={LecturerList}/>
-        <Route path="/module/:id" component={ModuleList}/>
+        <Route exact path="/" component={ChefList}/>
+        <Route path="/module/:id" component={RecipeList}/>
       </div>
     </HashRouter>
   );

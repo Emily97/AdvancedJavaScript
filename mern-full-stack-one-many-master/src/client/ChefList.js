@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Lecturer from './Lecturer';
+import Chef from './Chef';
 import axios from 'axios';
 import './app.css';
 
-class LecturerList extends Component {
+class ChefList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { lecturers: [] };
+    this.state = { chefs: [] };
   }
 
   componentDidMount() {
-    axios.get('api/lecturers')
+    axios.get('api/chefs')
       .then(response => {
-        this.setState({ lecturers: response.data });
+        this.setState({ chefs: response.data });
       })
       .catch(error => {
         console.log(error);
@@ -23,8 +23,8 @@ class LecturerList extends Component {
 
   render() {
 
-    const lecturerList = this.state.lecturers.map(u => (
-      <Lecturer
+    const chefList = this.state.chefs.map(u => (
+      <Chef
         key={u._id}
         id={u._id}
         name={u.name}
@@ -37,10 +37,10 @@ class LecturerList extends Component {
     return (
       <div>
         <h2>All Chefs</h2>
-        <div>{lecturerList}</div>
+        <div>{chefList}</div>
       </div>
     );
   }
 }
 
-export default LecturerList;
+export default ChefList;

@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './app.css';
 
-class ModuleList extends Component {
+class RecipeList extends Component {
   constructor(props) {
     super(props);
-    this.state = { modules: [] };
+    this.state = { recipes: [] };
   }
 
   componentDidMount() {
-    axios.get(`api/lecturers/${this.props.match.params.id}/modules`)
+    axios.get(`api/chefs/${this.props.match.params.id}/recipes`)
       .then(response => {
-        this.setState({ modules: response.data });
+        this.setState({ recipes: response.data });
       })
       .catch(error => {
         console.log(error);
@@ -21,8 +21,8 @@ class ModuleList extends Component {
 
   render() {
 
-    const moduleList = this.state.modules.map(u => (
-      <Module
+    const recipeList = this.state.recipes.map(u => (
+      <Recipe
         key={u._id}
         id={u._id}
         name={u.name}
@@ -38,17 +38,17 @@ class ModuleList extends Component {
               Return
           </button>
         </Link>
-        {moduleList.length ?
+        {recipeList.length ?
           <div>
             <h2>All Recipes</h2>
-            <div>{moduleList}</div></div> :
+            <div>{recipeList}</div></div> :
           <h2>No Recipes</h2> }
       </div>
     );
   }
 }
 
-const Module = (props) => {
+const Recipe = (props) => {
   return (
     <div>
       <h2>{props.name}</h2>
@@ -58,4 +58,4 @@ const Module = (props) => {
   );
 };
 
-export default ModuleList;
+export default RecipeList;
