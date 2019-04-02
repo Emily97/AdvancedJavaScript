@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Chef = require('./models/Chef');
-const Recipe = require('./models/Recipe');
+const Lecturer = require('./models/Lecturer');
+const Module = require('./models/Module');
 
-const mongo_uri = 'mongodb://localhost/chef-recipes';
+const mongo_uri = 'mongodb://localhost/lecturer-modules';
 mongoose.connect(mongo_uri, { useNewUrlParser: true }, function(err) {
   if (err) {
     throw err;
@@ -11,24 +11,24 @@ mongoose.connect(mongo_uri, { useNewUrlParser: true }, function(err) {
   }
 });
 
-Chef.findOne({name: 'Eoghan Yudkin'}, function(err, chef) {
+Lecturer.findOne({name: 'Eoghan Yudkin'}, function(err, lecturer) {
   if (err) throw err;
 
   let arr = [
     {name: 'Maths 101',
       credits: 10,
       weeks: 15,
-      chef_id : chef._id},
+      lecturer_id : lecturer._id},
     {name: 'Maths 202',
       credits: 10,
       weeks: 15,
-      chef_id : chef._id},
+      lecturer_id : lecturer._id},
     {name: 'Stats all folks',
       credits: 10,
       weeks: 15,
-      chef_id : chef._id}
+      lecturer_id : lecturer._id}
   ];
-  Recipe.create(arr, function(err, res) {
+  Module.create(arr, function(err, res) {
     if(err) throw err;
 
     console.log(res);
