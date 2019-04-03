@@ -7,12 +7,12 @@ class Lecturer extends React.Component {
     return (
       <div className="card">
         <div className="card-body">
-          <p>{this.props.name}</p>
+          <h2>{this.props.name}</h2>
           <figure>
             <img alt="Profile" src={this.props.image} />
           </figure>
-          <p>Region: {this.props.region}</p>
-          <p>Email: {this.props.email}</p>
+          <p>Cook Style: {this.props.region}</p>
+          <p>{this.props.email}</p>
 
           <Link to={`/module/${this.props.id}`}>
             <button type="button">

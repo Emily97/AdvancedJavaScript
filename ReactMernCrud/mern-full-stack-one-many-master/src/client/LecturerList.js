@@ -35,9 +35,11 @@ class LecturerList extends Component {
     ));
 
     return (
-      <div>
-        <h2>All Chefs</h2>
-        <div>{lecturerList}</div>
+      <div className="container">
+        <h1 className="col">All Chefs</h1>
+        <div>
+          <div>{lecturerList}</div>
+        </div>
       </div>
     );
   }

@@ -61,19 +61,23 @@ class ModuleList extends Component {
       <div>
         {moduleList.length ?
           <div>
-            <Link to={'/'}>
-              <button type="button">
+            <div className="col">
+              <Link to={'/'}>
+                <button type="button">
                   Return
-              </button>
-            </Link>
-            <h2>All Recipes</h2>
-            <Link to={'/create-recipe/'}>
-              <button type="button">
+                </button>
+              </Link>
+            </div>
+            <h1 className="col">All Recipes</h1>
+            <div className="col">
+              <Link to={'/create-recipe/'}>
+                <button type="button">
                   Create Recipe
-              </button>
-            </Link>
+                </button>
+              </Link>
+            </div>
             <div>{moduleList}</div></div> :
-          <h2>No Modules</h2> }
+          <h2>No Recipes</h2> }
       </div>
     );
   }
@@ -85,14 +89,16 @@ const Module = (props) => {
       <h2>{props.name}</h2>
       <p>Cooking Time:{props.time} minutes</p>
       <p>Level: {props.level}</p>
-      <Link to={`/edit-recipe/${props.id}`}>
-        <button type="button">
+      <div className="col-button">
+        <Link to={`/edit-recipe/${props.id}`}>
+          <button type="button">
             Edit Recipe
-        </button>
-      </Link>
-      <button type="button" onClick={() => {props.handleDelete(props.id);}}>
+          </button>
+        </Link>
+        <button type="button" onClick={() => {props.handleDelete(props.id);}}>
         Delete
-      </button>
+        </button>
+      </div>
     </div>
   );
 };
