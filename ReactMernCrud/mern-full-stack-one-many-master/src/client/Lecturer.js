@@ -15,8 +15,8 @@ class Lecturer extends React.Component {
           <p>{this.props.email}</p>
 
           <Link to={`/module/${this.props.id}`}>
-            <button type="button">
-                  View recipes
+            <button type="button" class="btn btn-light">
+                  View Recipes
             </button>
           </Link>
         </div>
